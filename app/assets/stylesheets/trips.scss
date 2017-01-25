@@ -1,3 +1,28 @@
 // Place all the styles related to the trips controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.alltrips {
+  font-size: 20px;
+  color: Green;
+}
+
+.trip{
+ 	float: left;
+    margin: 0 0 10px 100px;
+	text-align: center;
+}
+
+#above { 
+	width:100px; 
+	height: 300px; 
+	float:left;
+}
+
+fieldset{
+	position: relative;
+    top: 80px;
+    left: 500px;
+}
+
+#below { height:300px; width:100%; clear:both }

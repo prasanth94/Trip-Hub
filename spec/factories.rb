@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :trip, class: Trip do
+    id "1"
     name "Tawang"
     description  "Zero degree temperature"
   end
@@ -13,5 +14,11 @@ FactoryGirl.define do
     name "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     description  "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
   end
+
+  factory :valid_trip, class: Trip do
+    name "Gokarna"
+    description "Good vibes"
+  end
+
 
 end

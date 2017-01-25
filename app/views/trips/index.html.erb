@@ -1,3 +1,26 @@
-<% @trips.each do |trip| %>
-<%= link_to trip.name, trip %>
-<% end %>
+
+<section id = "above">
+<fieldset>
+	<%= form_for(@trip) do |f| %>
+
+	<%= f.label :name %>
+	<%= f.text_field :name, class: 'form-control' %>
+
+	<%= f.label :description %>
+	<%= f.text_area :description, class: 'form-control' %>
+
+	<%= f.submit %>
+
+	<% end %>
+</fieldset>
+</section>
+
+<section id="below">
+	<section class = "alltrips">
+		<% @trips.each do |trip| %>
+		<div class = "trip">
+			<%= link_to trip.name, trip %>
+		</div>
+		<% end %>
+	</section>​
+</section>​
