@@ -6,5 +6,18 @@
 50.times do |n|
    Trip.create!(name:  "Tawang", description: "Zero degree")
 end
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+
+50.times do |n|
+  email = Faker::Internet.email
+  password = "password"
+  User.create!(email: email,
+               password:              password,
+               password_confirmation: password)
+end
+
+users = User.all
+user  = users.second
+following = users[3..50]
+followers = users[4..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }

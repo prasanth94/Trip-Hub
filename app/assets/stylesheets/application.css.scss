@@ -10,10 +10,27 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- 
-@import "bootstrap-sprockets"
-@import "bootstrap"
-
  *= require_tree .
  *= require_self
  */
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+ *{
+ 	-webkit-box-sizing: border-box;
+ 	-moz-box-sizing: border-box;
+ 	-ms-box-sizing: border-box;
+ 	box-sizing: border-box;
+ }
+
+ .form{
+ position: absolute; 
+ top: 100px;
+ left: 300px;
+ width: 500px; 
+ height: 400px; 
+ background-color: lightgray;
+ padding: 10px 10px 10px 10px;
+ }

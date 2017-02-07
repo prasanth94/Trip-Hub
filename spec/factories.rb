@@ -20,5 +20,22 @@ FactoryGirl.define do
     description "Good vibes"
   end
 
+  factory :alice, class: User do
+    email "alice.1@gmail.com"
+    password "asdasd"
+  end
+
+  factory :romeo, class: User do
+    email "romeo.1@gmail.com"
+    password "asdasd"
+  end
+
+  factory :invalid_relation_1, class: Relationship do
+    follower_id "3"
+  end
+
+  factory :invalid_relation_2, class: Relationship do
+    followed_id "3"
+  end
 
 end
