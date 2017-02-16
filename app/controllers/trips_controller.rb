@@ -8,6 +8,7 @@ class TripsController < ApplicationController
   def index
   	@trips = Trip.all.order('created_at DESC')
   	@trip = Trip.new
+    @user = current_user
   end
 
 

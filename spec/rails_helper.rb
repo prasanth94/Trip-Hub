@@ -10,6 +10,7 @@ require 'support/factory_girl'
 require 'devise'
 require 'support/controller_macros'
 require 'support/devise'
+require 'support/warden'
 
 
 

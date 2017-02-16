@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Relationship, type: :model do
+  let(:relation1) { build(:relationship, followed_id: "")}
+  let(:relation2) { build(:relationship, follower_id: "")}
   context "invalid Relationship" do
   	it "is invalid without  followed id" do
-  	  relation = build(:invalid_relation_2)
-  	  expect(relation).not_to be_valid
+  	  expect(relation1).not_to be_valid
     end
 
     it "is invalid without  follower id" do
-  	  relation = build(:invalid_relation_1)
-  	  expect(relation).not_to be_valid
+  	  expect(relation2).not_to be_valid
     end
   end
 end

@@ -25,10 +25,10 @@ RSpec.describe TripsController, type: :controller do
   # describe 'Post #create' do
   #    login_user
   #   context "with valid params" do
+  #     let(:trip) { build(:trip) }
   #     it "creates a new trip" do
-  #       trip = build(:valid_trip)
   #       expect {
-  #       post :create, params: { trip: trip}
+  #       post :create, params: { trip: trip }
   #       }.to change(Trip, :count).by(1)
   #     end
   #   end
