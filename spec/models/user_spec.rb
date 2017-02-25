@@ -5,6 +5,13 @@ RSpec.describe User, type: :model do
   #it { is_expected.to have_db_column(:password).of_type :string }
   #it { is_expected.to have_many(:trips) }
 
+  context "profile pic" do
+    let(:user) { create(:user) }
+    it "should be valid with profile pic" do
+      expect(user).to be_valid
+    end
+  end
+
   context "email" do
     let(:user1) { create(:user) }
     let(:user2) { build(:user , email: user1.email) }
