@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'users/index'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" }
   match '/users/:id', to: 'users#show', via: 'get'
   match 'users/:id' => 'users#show', via: :get
   resources :relationships, only: [:create, :destroy]
@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   #get 'trips/show'
   #get 'trips/index'
+  
+
+  
   get 'users/following'
   #get 'users/index'
   resources :users do

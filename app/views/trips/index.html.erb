@@ -1,20 +1,10 @@
-<section class="stats">
-  <%= render 'shared/stats' %>
-</section>
-
-<div id = "left" class = "bar">
-	<%= form_for(@trip) do |f| %>
-
-	<%= f.label :name %>
-	<%= f.text_field :name, class: 'form-control' %>
-
-	<%= f.label :description %>
-	<%= f.text_area :description, class: 'form-control' %>
-
-	<%= f.submit %>
-
-	<% end %>
+<div id = "left" >
+Need to create a new trip?
+<br>
+<%= link_to "Create trip", new_trip_path %>
 </div>
+
+
 
 <div id ="center" class = "trips">
 	
@@ -43,8 +33,7 @@
                     </div>
 
     				<div class="card__meta">
-    					<a href="#">Web Design</a>
-                        <time>17th March</time>
+                        <time><%= trip.created_at %></time>
     				</div>
 
     				<article class="card__article">
@@ -59,11 +48,37 @@
     				<div class="card__author">
     					<img src="http://lorempixel.com/40/40/sports/" alt="user">
     					<div class="card__author-content">
-    						By <a href="#">John Doe</a>
+    						By <%= link_to trip.user.email, trip.user %>
     					</div>
     				</div>
     			</div>
     		</div>    
     	</div>
 	​	<% end %>
+   <%= will_paginate %>
 </div>​
+
+<div id = "right" >
+<section class="stats">
+  <%= render 'shared/stats' %>
+</section>
+  <% if @followed_users.any? %>
+    Followed users:
+    <br>
+    <%  @followed_users.each do |user| %>
+      <%= user.email %>
+    <% end %>
+    <br>
+  <% end %>
+  <% if @following_users.any? %>
+    Following users:
+    <br>
+    <%  @following_users.each do |user| %>
+      <%= user.email %>
+      <% user.trips.each do |trip| %>
+        <%= trip.name %>
+      <% end %>
+    <% end %>
+    <br>
+  <% end %>
+</div>

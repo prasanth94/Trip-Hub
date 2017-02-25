@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
   has_many :trips
 
+  has_attached_file :profile_pic, styles: { medium: "300x300>", thumb: "100x100#" }
+  validates_attachment_content_type :profile_pic, content_type: /\Aimage\/.*\z/
+
   has_many :active_relationships, class_name: "Relationship",
   								  foreign_key: "follower_id",
   								  dependent: :destroy

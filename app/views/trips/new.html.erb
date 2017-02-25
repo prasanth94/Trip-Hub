@@ -1,0 +1,17 @@
+	<%= form_for @trip,  html: { multipart: true }  do |f| %>
+
+	<%= f.label :name %>
+	<%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :title %>
+    <%= f.text_area :title, class: 'form-control' %>
+
+	<%= f.label :description %>
+	<%= f.text_area :description, class: 'form-control' %>
+
+	<%= f.label :images %>
+	<%= file_field_tag "images[]", type: :file, multiple: true %>
+
+	<%= f.submit %>
+
+	<% end %>

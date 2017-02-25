@@ -6,5 +6,6 @@ FactoryGirl.define do
       "user#{n}@triphub.org"
     end
     password "asdasd"
+    photo { fixture_file_upload(Rails.root.join('spec/fixtures/test_img.png'), 'image/png') }
   end
 end

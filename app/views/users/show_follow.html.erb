@@ -1,5 +1,7 @@
 <aside class="col-md-4">
 <h1><%= @user.email %></h1>
+<%= image_tag @user.profile_pic.url(:thumb) %>
+<br>
 <span><%= link_to "view my profile", @user %></span>
 <%= render 'shared/stats' %>
 </aside>

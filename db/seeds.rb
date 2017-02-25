@@ -3,9 +3,7 @@
 #
 # Examples:
 
-50.times do |n|
-   Trip.create!(name:  "Tawang", description: "Zero degree")
-end
+
 
 50.times do |n|
   email = Faker::Internet.email
@@ -13,6 +11,10 @@ end
   User.create!(email: email,
                password:              password,
                password_confirmation: password)
+end
+
+50.times do |n|
+   Trip.create!(name:  "Tawang", description: "Zero degree", user_id: 1)
 end
 
 users = User.all
