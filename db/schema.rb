@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20170224140204) do
   add_index "trips", ["user_id"], name: "index_trips_on_user_id"
 
   create_table "users", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "email",                    default: "", null: false
     t.string   "encrypted_password",       default: "", null: false
     t.string   "reset_password_token"
@@ -58,8 +60,10 @@ ActiveRecord::Schema.define(version: 20170224140204) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.string   "provider"
     t.string   "uid"
     t.string   "profile_pic_file_name"
