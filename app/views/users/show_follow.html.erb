@@ -1,4 +1,4 @@
-<aside class="col-md-4">
+<aside class="col-md-4" style="top:50px;">
 <h1><%= @user.email %></h1>
 <%= image_tag @user.profile_pic.url(:thumb) %>
 <br>
@@ -6,7 +6,7 @@
 <%= render 'shared/stats' %>
 </aside>
 
-<div class="col-md-8">
+<div class="col-md-8" style="top:50px;">
     <h3><%= @title %></h3>
     <% if @users.any? %>
       <ul class="users follow">

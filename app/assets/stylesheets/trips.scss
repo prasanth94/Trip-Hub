@@ -50,17 +50,27 @@ margin:0 auto;
 
 
 .trip_details{
+	position: relative;
+	top: 100px;
 	text-align: center;
 	margin: 20px 20px 20px 20px;
 	#trip_name{
+	
 	font-size: 30px;
 	margin: 20px 20px 20px 20px;
 	}
 	#trip_description{
+	
 	font-size: 15px;
 	margin: 20px 20px 20px 20px;
 }
 	
+}
+
+.form{
+	left:200px;
+	top:100px;
+	width: 50%;
 }
 
 
