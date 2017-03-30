@@ -30,7 +30,7 @@ gem 'will_paginate',           '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+ gem 'rails_12factor'
 # Use Unicorn as the app server
 # gem 'unicorn'
 gem "paperclip", "~> 5.0.0"
@@ -54,3 +54,4 @@ group :development do
   gem 'spring'
 end
 
+gem 'pg', group: :production 
