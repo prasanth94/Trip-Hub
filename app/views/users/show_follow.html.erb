@@ -1,17 +1,17 @@
 <aside class="col-md-4" style="top:50px;">
-<h1><%= @user.email %></h1>
-<%= image_tag @user.profile_pic.url(:thumb) %>
-<br>
-<span><%= link_to "view my profile", @user %></span>
-<%= render 'shared/stats' %>
+  <h1><%= @user.email %></h1>
+  <%= image_tag @user.profile_pic.url(:thumb) %>
+  <br>
+  <span><%= link_to "view my profile", @user %></span>
+  <%= render 'shared/stats' %>
 </aside>
 
 <div class="col-md-8" style="top:50px;">
-    <h3><%= @title %></h3>
-    <% if @users.any? %>
-      <ul class="users follow">
-        <%= render @users %>
-      </ul>
-      <%= will_paginate %>
-    <% end %>
+  <h3><%= @title %></h3>
+  <% if @users.any? %>
+    <ul class="users follow">
+      <%= render @users %>
+    </ul>
+    <%= will_paginate %>
+  <% end %>
 </div>

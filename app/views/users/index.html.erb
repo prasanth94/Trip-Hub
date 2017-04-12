@@ -1,3 +1,5 @@
+<div class = "users">
 <% @users.each do |user| %>
-  <%= link_to user.email, user %><br/>
+  <li><%= link_to user.email, user %></li><br/>
 <% end %>
+</div>

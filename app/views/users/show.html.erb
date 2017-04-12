@@ -1,5 +1,5 @@
 <div class = "user_profile">
-<%= render 'follow_form' if user_signed_in? %>
-<%= image_tag @user.profile_pic.url(:thumb) %>
-<%= @user.email %>
+  <%= render 'follow_form' if user_signed_in? %>
+  <%= image_tag @user.profile_pic.url(:thumb) %>
+  <%= @user.email %>
 </div>

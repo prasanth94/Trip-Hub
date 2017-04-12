@@ -13,7 +13,7 @@ require 'support/devise'
 require 'support/warden'
 
 
-
+Dir["./spec/controllers/shared_examples/*.rb"].each { |f| require f } 
  
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

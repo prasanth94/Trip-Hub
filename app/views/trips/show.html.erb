@@ -1,4 +1,8 @@
 <div class = 'trip_details'>
-	<div id = 'trip_name'><%= @trip.name %></div>
-	<div id = 'trip_description'><%= @trip.description %></div>
+  <div id = 'trip_name'><%= @trip.name %></div>
+  <div id = 'trip_description'><%= @trip.description %></div>
+  <% if @trip.user_id == current_user.id %>
+  	<%= link_to 'Edit', edit_trip_path(@trip) %><br>
+  	<%= link_to 'Destroy', @trip, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
 </div>
