@@ -1,4 +1,5 @@
  require 'rails_helper'
+ require 'pp'
 RSpec.describe TripsController, type: :controller do
 
 
@@ -51,6 +52,7 @@ RSpec.describe TripsController, type: :controller do
 
 
   describe "#create" do
+    
     let(:params_for_create) { build(:trip) }
 
     it_behaves_like "common to all controller actions" do
@@ -69,7 +71,7 @@ RSpec.describe TripsController, type: :controller do
 
     it "redirects to the new trips page on successful Trip creation" do
       post :create, params: { trip: params_for_create }
-
+      
       expect(response).to redirect_to trip 
     end
 
@@ -95,6 +97,77 @@ RSpec.describe TripsController, type: :controller do
       expect(response).to render_template :new
     end
   end
+
+
+
+
+
+  describe "#update" do
+    let(:trip) { FactoryGirl.create(:trip) }
+
+    it 'does something' do
+      pp trip.name
+    end
+
+    let(:params_for_update) do
+      {
+        id: trip.id,
+        name: trip.name,
+        description: "Arunachal Pradesh"
+      }
+    end
+
+    it_behaves_like "common to all controller actions" do
+      let(:make_request) do
+        patch :update, params_for_update
+      end
+    end
+
+    context "successful requests" do
+      before do
+        patch :update, params_for_update
+      end
+  
+      it "updates the trip" do
+        puts trip.to_yaml
+        expect(trip.reload.description).to eq params_for_update[:trip][:description]
+      end
+
+      it "redirects to the trip show page" do
+        expect(response).to redirect_to trip
+      end
+    end
+
+  end
+
+
+
+  describe "#destroy" do
+    let!(:trip) { create :trip }
+
+    it_behaves_like "common to all controller actions" do
+      let(:make_request) do
+        delete :destroy, id: trip.id
+      end
+    end
+
+    it "deletes the trip" do
+      expect { delete :destroy, id: trip.id }.to change(Trip, :count).by -1
+    end
+
+    it "sets @trip" do
+      delete :destroy, id: trip.id
+
+      expect(assigns(:trip)).to be_a Trip
+    end
+
+    it "redirects to the index action" do
+      delete :destroy, id: trip.id
+
+      expect(response).to redirect_to root_path
+    end
+  end
+
 
   
   # describe '#index' do
