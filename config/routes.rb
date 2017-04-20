@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   get 'users/index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "registrations" }
-  match '/users/:id', to: 'users#show', via: 'get'
-  match 'users/:id' => 'users#show', via: :get
+  #match '/users/:id', to: 'users#show', via: 'get'
+  get 'users/:id' => 'users#show'
   resources :relationships, only: [:create, :destroy]
   #devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -11,15 +11,16 @@ Rails.application.routes.draw do
   #get 'trips/show'
   #get 'trips/index'
   
-
+ #get 'users/show'
   
   get 'users/following'
-  #get 'users/index'
+
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :show
     end
   end
+
   get '/home', :to => 'homepage#home'
   root 'trips#index'
   resources :trips
